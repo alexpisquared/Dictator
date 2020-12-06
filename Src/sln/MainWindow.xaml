@@ -1,0 +1,60 @@
+﻿<Window x:Class="TTS.ForSchool.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+        xmlns:local="clr-namespace:TTS.ForSchool" Title="TTS for School" Height="650" Width="800">
+  <Window.Resources>
+    <Style TargetType="{x:Type Menu}"      >
+    </Style>
+    <Style TargetType="{x:Type MenuItem}"      >
+    </Style>
+
+    <Style TargetType="Label">
+      <Setter Property="Foreground"   Value="#FF23F3A8" />
+      <Setter Property="FontSize"     Value="22" />
+    </Style>
+    <Style TargetType="TextBox">
+      <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+  </Window.Resources>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto" MinWidth="120"/>
+      <ColumnDefinition Width="3*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <Slider Grid.ColumnSpan="2" Minimum="-10" Maximum="10" Margin="6,6,252,6" ValueChanged="Slider_ValueChanged" SmallChange="1" LargeChange="1" Value="3" Cursor="Hand" 
+            TickFrequency="1" TickPlacement="TopLeft" />
+
+    <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Margin="6" HorizontalAlignment="Right">
+      <Menu x:Name="menu1" >
+        <MenuItem Header="_En" Click="onEn"/>
+        <MenuItem Header="_Fr" Click="onFr" />
+        <MenuItem Header="_Ru" Click="onRu"/>
+        <MenuItem Header="_Ch" Click="onCh"/>
+        <MenuItem Header="L_0" Click="onSay1secAllVoices"/>
+        <MenuItem Header="L_1" Click="onSayAllVoices"/>
+        <MenuItem Header="° ° °"   ToolTip="Click to adjust file locations and other settings" Height="17" >
+          <Separator />
+        </MenuItem>
+      </Menu>
+    </StackPanel>
+
+    <ListBox     Grid.Column="0" Margin="6" Grid.Row="1" x:Name="lbv" Foreground="#080" FontSize="16" SelectionChanged="lbVoice_SelectionChanged" />
+    <ListBox     Grid.Column="1" Margin="6" Grid.Row="1" x:Name="lbx" Foreground="#00f" FontSize="16" SelectionChanged="lbTask_SelectionChanged"  >
+      <ListBoxItem>qwewq</ListBoxItem>
+      <ListBoxItem>qwewq</ListBoxItem>
+      <ListBoxItem>qwewq</ListBoxItem>
+      <ListBoxItem>qwewq</ListBoxItem>
+    </ListBox>
+
+    <TextBox    Margin="6 6 95 6" Grid.Row="2" Grid.ColumnSpan="2" x:Name="tbxCurPhrs" TextWrapping="Wrap" Text="WWWWWWWWWWWWWWW" HorizontalAlignment="Stretch" />
+    
+    <StackPanel Grid.ColumnSpan="3" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+      <Button Content="_Read" Margin="6" Width="75" Click="onSpeakCurPhrase" IsDefault="True" />
+    </StackPanel>
+
+  </Grid>
+</Window>
