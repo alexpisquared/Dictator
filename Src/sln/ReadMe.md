@@ -1,0 +1,1 @@
+﻿>NET Frameork 4.8 .. since core abandoned free TTS!!!
